@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typora-Lite</title>
+    <meta name="description" content="A fast, beautiful, cross-platform desktop Markdown viewer" />
+    
+    <!-- Preload critical fonts and styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Prevent FOUC -->
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      }
+      
+      /* Dark theme detection */
+      @media (prefers-color-scheme: dark) {
+        html, body {
+          background: #1a1a1a;
+          color: #ffffff;
+        }
+      }
+      
+      /* Loading spinner */
+      .loading {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #0066cc;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Initial loading state -->
+    <div id="loading" class="loading"></div>
+    
+    <!-- Application root -->
+    <div id="app"></div>
+    
+    <!-- Main script -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
